@@ -212,7 +212,14 @@ with st.expander(t["client_details"][lang], expanded=True):
         key="description"
     )
     timeline = st.slider(t["timeline"][lang], 2, 52, 12, key="timeline")
-    budget = st.slider(t["budget"][lang], 5000, 250000, (20000, 50000), step=5000, key="budget")
+    budget = st.slider(
+    t["budget"][lang], 
+    min_value=100,      # Start from 100
+    max_value=15000, 
+    value=(20000, 50000), 
+    step=100,           # Increment by 100
+    key="budget"
+)
     
     generate_button = st.button(t["btn_generate"][lang], key="generate_button")
 
